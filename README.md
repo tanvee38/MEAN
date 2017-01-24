@@ -1,3 +1,5 @@
 Simple MEAN Stack application:
-  RESTful API implementaion
-  CRUD operation
+
+
+  1. RESTful API implementaion
+  2. CRUD operation
