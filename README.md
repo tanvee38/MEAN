@@ -2,8 +2,8 @@ Simple MEAN Stack application:
 
 It is a very basic application I have developed using MEAN. Followings are covered:
 
-  1. RESTful API implementaion
-  2. CRUD operation (Create, Read, Update, Delete)
+  a. RESTful API implementaion
+  b. CRUD operation (Create, Read, Update, Delete)
   
   How to run the application:
   
