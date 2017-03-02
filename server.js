@@ -1,20 +1,16 @@
 var express = require('express');
 var cors = require('cors');
 var bodyParser = require('body-Parser');
-
 var app = express();
 app.use(express.static(__dirname + '/client'));
 app.use(cors({}));
 app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
-
-
 var mongoose = require('mongoose');
 mongoose.connect("mongodb://127.0.0.1:27017/admin");
 
 var UserSchema = new mongoose.Schema({
-
 	username: String,
 	fullName: String,
 	email: String
@@ -24,20 +20,15 @@ var UserModel = mongoose.model('Users',UserSchema);
 
 app.post('/create',function(req, res){
 	var data = req.body;
-	console.log(data);
-
 	UserModel.create(data, function(err,newInstance){
 			if(err){
 
 				res.send(err.message)
-				//return console.err("what is this error!!!!");
 				return console.error(err);
 			}
 			console.log(newInstance);
 			res.send(newInstance)
-
 	});
-
 });
 
 app.get('/read',function(req,res){
@@ -51,7 +42,6 @@ app.get('/read',function(req,res){
 		res.send(objects);
 	});
 });
-
 
 app.post('/update', function(req,res){
 	var data = req.body;
@@ -75,10 +65,8 @@ app.post('/delete',function(req,res){
 			return console.error(err);
 		}
 		res.send(message);
-
 	});
 });
-
 
 app.listen(3000,function(){
 	console.log('Example app listening on port 3000!');
