@@ -23,11 +23,9 @@ app.post('/create',function(req, res){
 	
 	UserModel.create(data, function(err,newInstance){
 			if(err){
-
 				res.send(err.message)
 				return console.error(err);
 			}
-			console.log(newInstance);
 			res.send(newInstance)
 	});
 
