@@ -20,6 +20,7 @@ var UserModel = mongoose.model('Users',UserSchema);
 
 app.post('/create',function(req, res){
 	var data = req.body;
+	
 	UserModel.create(data, function(err,newInstance){
 			if(err){
 
@@ -29,12 +30,11 @@ app.post('/create',function(req, res){
 			console.log(newInstance);
 			res.send(newInstance)
 	});
+
 });
 
 app.get('/read',function(req,res){
-
 	UserModel.find(null,function(err, objects){
-
 		if(err){
 			res.send(err.message)
 			return console.error(err);
@@ -42,6 +42,7 @@ app.get('/read',function(req,res){
 		res.send(objects);
 	});
 });
+
 
 app.post('/update', function(req,res){
 	var data = req.body;
@@ -57,7 +58,6 @@ app.post('/update', function(req,res){
 });
 
 app.post('/delete',function(req,res){
-
 	var condition = req.body;
 	UserModel.remove(condition,function(err,message){
 		if(err){
@@ -68,6 +68,7 @@ app.post('/delete',function(req,res){
 	});
 });
 
+
 app.listen(3000,function(){
-	console.log('Example app listening on port 3000!');
+	console.log('Serer running on port 3000!');
 });
